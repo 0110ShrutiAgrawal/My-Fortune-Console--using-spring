@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Define your beans here -->
+
+
+	<!-- Constructor Injection -->
+
+	<bean id="englishRandom"
+		class="org.ncu.spring_labproject1.RandomeFortuneService">
+	</bean>
+	<bean id="englishFortune"
+		class="org.ncu.spring_labproject1.EnglishFortuneService">
+		<constructor-arg ref="englishRandom"></constructor-arg>
+	</bean>
+
+	<bean id="englishGreetingService"
+		class="org.ncu.spring_labproject1.EnglishGreetingService">
+		<constructor-arg ref="englishFortune"></constructor-arg>
+	</bean>
+
+</beans>
+
+
+
+
+
